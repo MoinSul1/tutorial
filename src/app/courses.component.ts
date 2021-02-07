@@ -4,6 +4,9 @@ import { Component } from '@angular/core'
 @Component({
     selector: 'courses',
     template: `<h2>{{ getTitle() }}</h2>
+    //string interpolation 
+                <h2 [textContent]="Title"></h2>
+                //property binding
                 <ul>
                 <li *ngFor=" let course of courses">
                 {{ course }}
