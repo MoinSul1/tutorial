@@ -4,15 +4,18 @@ import { Component } from '@angular/core'
 @Component({
     selector: 'courses',
     template: `<h2>{{ getTitle() }}</h2>
-    //string interpolation 
-                <h2 [textContent]="Title"></h2>
-                //property binding
+    
+                <h2 [textContent]="title"></h2>
+                
                 <ul>
                 <li *ngFor=" let course of courses">
                 {{ course }}
                 </li>
 
                 </ul>
+                <table>
+                <tr><td [attr.colspan]="colspan"></td></tr>
+                </table>
 
                         `
 })
@@ -21,6 +24,7 @@ import { Component } from '@angular/core'
 export class CoursesComponent{
 
     title = "List Of Courses ";
+    colspan=2;
 
     getTitle(){
         return this.title;
