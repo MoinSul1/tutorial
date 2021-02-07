@@ -12,6 +12,7 @@ import { Component } from '@angular/core'
 
 export class CoursesComponent{
 onSave($event){
+    $event.stopPropagation();
     console.log("Btn was Clicked", $event);
 }
 onDivClick(){
