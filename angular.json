@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "mosh1"
+  "defaultProject": "mosh1",
+  "cli": {
+    "analytics": "06f704bb-0840-48c3-9672-d0fd70a3239d"
+  }
 }
