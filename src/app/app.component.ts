@@ -11,6 +11,12 @@ export class AppComponent {
     title:"Title",
     isFavorite: true
   }
-  courses = [1,2];
-  viewMode = 'list';
+  courses = [
+  {id:1,name:'Course1'},
+  {id:2,name:'Course2'},
+  {id:3,name:'Course3'}
+  
+    
+  ];
+  
 }
