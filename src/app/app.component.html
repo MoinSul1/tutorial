@@ -1,7 +1,9 @@
 <h2>Angular</h2>
+<button (click)="onAdd()">Add</button>
 <ul>
-    <li *ngFor="let course of courses; index as i; even as isEven">
-        {{ i }}-{{ course.name }} <span *ngIf = "isEven">(EVEN)</span>
+    <li *ngFor="let course of courses">
+        {{ course.name }} 
+        <button (click)="onRemove(course)">Remove</button>
 
     </li>
 </ul>
