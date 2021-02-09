@@ -12,4 +12,5 @@ export class AppComponent {
     isFavorite: true
   }
   courses = [1,2];
+  viewMode = 'list';
 }
