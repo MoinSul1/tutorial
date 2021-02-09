@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FavouriteComponent } from './favourite/favourite.component';
     CoursesComponent,
     CourseComponent,
     SummaryPipe,
-    FavouriteComponent
+    FavouriteComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,

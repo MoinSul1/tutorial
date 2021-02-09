@@ -1,9 +1,2 @@
 <h2>Angular</h2>
-<button (click)="onAdd()">Add</button>
-<ul>
-    <li *ngFor="let course of courses">
-        {{ course.name }} 
-        <button (click)="onChange(course)">Remove</button>
-
-    </li>
-</ul>
+<input type="text" [appInputFormat]= "'uppercase'">
