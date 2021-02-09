@@ -1,2 +1,9 @@
 <h2>Angular</h2>
-<favourite [isFavorite]="post.isFavorite"></favourite>
+<div *ngIf="courses.length > 0; then courseList else noCourse"></div>
+<ng-template #courseList>
+    List of Courses
+</ng-template>
+<ng-template #noCourse>
+    No courses yet
+</ng-template>
+

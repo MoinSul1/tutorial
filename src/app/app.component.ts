@@ -11,4 +11,5 @@ export class AppComponent {
     title:"Title",
     isFavorite: true
   }
+  courses = [1,2];
 }
