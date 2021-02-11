@@ -11,6 +11,7 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     SummaryPipe,
     FavouriteComponent,
     InputFormatDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    NewCourseFormComponent
   ],
   imports: [
     BrowserModule,
