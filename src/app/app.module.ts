@@ -1,4 +1,4 @@
-import {  HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SummaryPipe } from './summary.pipe';
 import { CoursesService } from './courses.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,8 +34,7 @@ import { PostsComponent } from './posts/posts.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
-    
+    HttpClientModule 
   
   ],
   providers: [CoursesService],
