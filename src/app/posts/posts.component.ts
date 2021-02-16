@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent  implements OnInit{
-  posts!: any[];
-  
+  posts: any[];
+  id: any;
 
   constructor( private service: PostService ) { 
     
@@ -20,6 +20,9 @@ ngOnInit(){
     .subscribe(response => {
     //console.log(response);
     this.posts = response;
+  },error =>{
+    alert('An unexpected error occured ');
+    console.log(error);
   }) ;
 
 }
@@ -30,6 +33,13 @@ ngOnInit(){
     .subscribe(response => {
       post['id'] = response.id;
       this.posts.splice(0,0,post);
+    },(error:Response) =>{
+      if(error.status === 400){
+        //this.form.setErrors(error.json());
+      }
+      else{
+      alert('An unexpected error occured ');
+      console.log(error);}
     });
 
     
@@ -40,6 +50,9 @@ ngOnInit(){
     this.service.updatePost(post)
     .subscribe(response => {
       console.log(response);
+    },error =>{
+      alert('An unexpected error occured ');
+      console.log(error);
     })
   }
  
@@ -49,7 +62,15 @@ ngOnInit(){
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1); 
-    });
+    },(error: Response)  =>{
+      if(error.status == 404)
+      alert('this post has already been deleted');
+      else{
+        alert('An unexpected error occured ');
+        console.log(error);
+     
+      }
+       });
   }
 
 }
