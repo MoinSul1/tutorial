@@ -12,14 +12,14 @@ import { AppError } from '../app-error';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent  implements OnInit{
-  posts!: any[];
+  posts: any[]=[];
   id: any;
 
   constructor( private service: PostService ) { 
     
 }
 ngOnInit(){
-  this.service.getPosts()
+  this.service.getAll()
     .subscribe(response => {
     //console.log(response);
     this.posts = response;
@@ -29,7 +29,7 @@ ngOnInit(){
   createPost(input: HTMLInputElement){
     let post = {title: input.value } ;
     input.value = '';
-    this.service.createPost(post)
+    this.service.create(post)
     .subscribe(response => {
       post['id'] = response.id;
       this.posts.splice(0,0,post);
@@ -46,7 +46,7 @@ ngOnInit(){
 
   }
   updatePost(post){
-    this.service.updatePost(post)
+    this.service.update(post)
     .subscribe(response => {
       console.log(response);
     })
@@ -54,7 +54,7 @@ ngOnInit(){
  
 
   deletePost(post){
-    this.service.deletePost(post.id)
+    this.service.delete(post.id)
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1); 
