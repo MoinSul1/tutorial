@@ -1,9 +1,10 @@
+import { AppErrorHandler } from './app-error-handler';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SummaryPipe } from './summary.pipe';
 import { CoursesService } from './courses.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,7 +39,7 @@ import { PostsComponent } from './posts/posts.component';
     HttpClientModule 
   
   ],
-  providers: [CoursesService,PostService],
+  providers: [CoursesService,PostService,AppErrorHandler,{provide:ErrorHandler,useClass : AppErrorHandler} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,7 @@ import { AppError } from '../app-error';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent  implements OnInit{
-  posts: any[];
+  posts!: any[];
   id: any;
 
   constructor( private service: PostService ) { 
@@ -23,9 +23,6 @@ ngOnInit(){
     .subscribe(response => {
     //console.log(response);
     this.posts = response;
-  },error =>{
-    alert('An unexpected error occured ');
-    console.log(error);
   }) ;
 
 }
@@ -40,9 +37,8 @@ ngOnInit(){
       if(error instanceof BadInput){
      //   this.form.setErrors(error.originalError);
       }
-      else{
-      alert('An unexpected error occured ');
-      console.log(error);}
+      else
+      throw error;
     });
 
     
@@ -53,9 +49,6 @@ ngOnInit(){
     this.service.updatePost(post)
     .subscribe(response => {
       console.log(response);
-    },error =>{
-      alert('An unexpected error occured ');
-      console.log(error);
     })
   }
  
@@ -69,9 +62,7 @@ ngOnInit(){
       if(error instanceof NotFoundError )
       alert('this post has already been deleted');
       else{
-        alert('An unexpected error occured ');
-        console.log(error);
-     
+        throw error;
       }
        });
   }
