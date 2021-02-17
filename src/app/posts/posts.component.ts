@@ -1,3 +1,4 @@
+import { BadInput } from './../bad-input';
 import { NotFoundError } from './../not-found-error';
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
@@ -35,9 +36,9 @@ ngOnInit(){
     .subscribe(response => {
       post['id'] = response.id;
       this.posts.splice(0,0,post);
-    },(error:Response) =>{
-      if(error.status === 400){
-        //this.form.setErrors(error.json());
+    },(error: AppError) =>{
+      if(error instanceof BadInput){
+     //   this.form.setErrors(error.originalError);
       }
       else{
       alert('An unexpected error occured ');
